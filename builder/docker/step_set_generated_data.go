@@ -3,12 +3,12 @@ package docker
 import (
 	"context"
 
-	"github.com/hashicorp/packer/builder"
+	"github.com/hashicorp/packer/common/gendata"
 	"github.com/hashicorp/packer/helper/multistep"
 )
 
 type StepSetGeneratedData struct {
-	GeneratedData *builder.GeneratedData
+	GeneratedData *gendata.GeneratedData
 }
 
 func (s *StepSetGeneratedData) Run(_ context.Context, state multistep.StateBag) multistep.StepAction {

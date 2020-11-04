@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/hashicorp/hcl/v2/hcldec"
-	"github.com/hashicorp/packer/builder"
 	"github.com/hashicorp/packer/builder/yandex"
 	"github.com/hashicorp/packer/common"
+	"github.com/hashicorp/packer/common/gendata"
 	"github.com/hashicorp/packer/helper/config"
 	"github.com/hashicorp/packer/helper/multistep"
 	"github.com/hashicorp/packer/packer"
@@ -210,7 +210,7 @@ func (p *PostProcessor) PostProcess(ctx context.Context, ui packer.Ui, artifact 
 		},
 		&yandex.StepCreateInstance{
 			Debug:         p.config.PackerDebug,
-			GeneratedData: &builder.GeneratedData{State: state},
+			GeneratedData: &gendata.GeneratedData{State: state},
 		},
 		new(yandex.StepWaitCloudInitScript),
 		new(yandex.StepTeardownInstance),

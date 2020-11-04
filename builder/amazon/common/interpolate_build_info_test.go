@@ -6,7 +6,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/hashicorp/packer/builder"
+	"github.com/hashicorp/packer/common/gendata"
 	"github.com/hashicorp/packer/helper/multistep"
 )
 
@@ -35,8 +35,8 @@ func testState() multistep.StateBag {
 	return state
 }
 
-func testGeneratedData(state multistep.StateBag) builder.GeneratedData {
-	generatedData := builder.GeneratedData{State: state}
+func testGeneratedData(state multistep.StateBag) gendata.GeneratedData {
+	generatedData := gendata.GeneratedData{State: state}
 	return generatedData
 }
 
